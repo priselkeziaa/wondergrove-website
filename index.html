@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Wondergrove creates playful preschool worksheets, Mandarin learning resources, curriculum design, and interactive educational experiences for young learners.">
+  <meta name="theme-color" content="#18304f">
+  <title>Wondergrove | Learning Language and So Much More</title>
+  <style>
+    :root {
+      --navy: #18304f;
+      --red: #e84b43;
+      --yellow: #f4d35e;
+      --mint: #b9e6d2;
+      --cream: #fffaf0;
+      --ink: #253247;
+      --muted: #637084;
+      --white: #ffffff;
+      --line: #e6e8ec;
+      --shadow: 0 14px 38px rgba(24,48,79,.10);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--cream); line-height: 1.6; }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .topline { background: var(--navy); color: white; text-align: center; padding: 8px 16px; font-size: .82rem; letter-spacing: .03em; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,250,240,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(24,48,79,.08); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 78px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 850; letter-spacing: -.04em; color: var(--navy); font-size: 1.42rem; }
+    .logo { width: 42px; height: 42px; display: grid; place-items: center; background: var(--yellow); border-radius: 14px 14px 14px 4px; font-size: 1.4rem; }
+    .brand small { display: block; font-size: .64rem; font-weight: 650; letter-spacing: .04em; color: var(--muted); }
+    .navlinks { display: flex; align-items: center; gap: 22px; }
+    .navlinks a { text-decoration: none; font-size: .92rem; font-weight: 650; }
+    .navlinks a:hover { color: var(--red); }
+    .menu-btn { display: none; border: 0; background: transparent; font-size: 1.5rem; color: var(--navy); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 999px; padding: 13px 20px; font-weight: 750; text-decoration: none; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(24,48,79,.12); }
+    .btn-red { background: var(--red); color: white; }
+    .btn-navy { background: var(--navy); color: white; }
+    .btn-yellow { background: var(--yellow); color: var(--navy); }
+    .btn-outline { border: 1px solid #ccd3dd; color: var(--navy); background: transparent; }
+    .hero { padding: 72px 0 62px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 44px; align-items: center; }
+    .eyebrow { color: var(--red); text-transform: uppercase; letter-spacing: .15em; font-size: .76rem; font-weight: 850; }
+    h1,h2,h3,p { margin-top: 0; }
+    h1 { color: var(--navy); font-size: clamp(2.8rem, 5.6vw, 5.15rem); letter-spacing: -.065em; line-height: .99; margin: 15px 0 22px; }
+    h1 span { color: var(--red); }
+    .hero p { font-size: 1.13rem; color: var(--muted); max-width: 600px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 22px; }
+    .micro { color: var(--muted); font-size: .86rem; }
+    .artboard { min-height: 420px; position: relative; display: grid; place-items: center; }
+    .blob { position: absolute; width: 88%; height: 86%; background: var(--mint); border-radius: 48% 52% 41% 59% / 50% 39% 61% 50%; transform: rotate(-7deg); }
+    .paper { position: relative; z-index: 1; background: white; padding: 24px; border-radius: 20px; width: min(340px, 85%); box-shadow: var(--shadow); transform: rotate(3deg); border: 1px solid #f1f1f1; }
+    .paper-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed #e9edf1; padding-bottom: 12px; margin-bottom: 14px; }
+    .paper-top strong { color: var(--navy); }
+    .pill { background: var(--yellow); border-radius: 99px; padding: 4px 10px; font-size: .7rem; font-weight: 800; }
+    .worksheet-title { font-size: 1.28rem; font-weight: 850; color: var(--navy); margin-bottom: 8px; }
+    .worksheet-sub { font-size: .82rem; color: var(--muted); margin-bottom: 18px; }
+    .match-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .match { background: #f5f8fc; border: 1px solid #e8edf3; border-radius: 13px; min-height: 74px; display: grid; place-items: center; font-size: 1.8rem; }
+    .lines { margin-top: 18px; display: grid; gap: 12px; }
+    .line { height: 1px; background: #d9e0e8; }
+    .float { position: absolute; z-index: 2; border-radius: 17px; padding: 13px 16px; box-shadow: var(--shadow); font-weight: 800; }
+    .float-one { top: 8%; left: 0; background: var(--yellow); transform: rotate(-8deg); }
+    .float-two { bottom: 8%; right: 0; background: white; color: var(--navy); transform: rotate(5deg); }
+    .float-three { bottom: 22%; left: 2%; background: var(--red); color: white; transform: rotate(-5deg); }
+    section { padding: 76px 0; }
+    .section-head { max-width: 700px; margin-bottom: 34px; }
+    .section-head h2 { font-size: clamp(2rem, 3.5vw, 3.1rem); line-height: 1.06; letter-spacing: -.05em; color: var(--navy); margin: 10px 0 14px; }
+    .section-head p { color: var(--muted); font-size: 1.05rem; }
+    .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 23px; box-shadow: 0 6px 20px rgba(24,48,79,.035); }
+    .card-icon { width: 52px; height: 52px; display: grid; place-items: center; font-size: 1.55rem; border-radius: 16px; margin-bottom: 18px; }
+    .card:nth-child(1) .card-icon { background: #fff0d0; }
+    .card:nth-child(2) .card-icon { background: #dff5eb; }
+    .card:nth-child(3) .card-icon { background: #ffe4e1; }
+    .card:nth-child(4) .card-icon { background: #e4edff; }
+    .card h3 { color: var(--navy); font-size: 1.12rem; margin-bottom: 9px; }
+    .card p { color: var(--muted); font-size: .92rem; margin-bottom: 0; }
+    .soft { background: #f1f6f2; }
+    .two-col { display: grid; grid-template-columns: .9fr 1.1fr; gap: 46px; align-items: center; }
+    .feature-panel { background: var(--navy); color: white; padding: 32px; border-radius: 28px; position: relative; overflow: hidden; }
+    .feature-panel:after { content: "文"; position: absolute; right: 12px; bottom: -60px; font-size: 13rem; line-height: 1; color: rgba(255,255,255,.07); font-weight: 900; }
+    .feature-panel h3 { font-size: 1.8rem; line-height: 1.1; letter-spacing: -.04em; }
+    .feature-panel p { color: #dbe4ef; }
+    .checklist { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
+    .checklist li { display: flex; gap: 11px; align-items: flex-start; }
+    .check { color: var(--red); font-weight: 900; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .project { border-radius: 22px; overflow: hidden; border: 1px solid var(--line); background: white; }
+    .project-art { min-height: 175px; display: grid; place-items: center; padding: 22px; }
+    .project:nth-child(1) .project-art { background: #ffedbd; }
+    .project:nth-child(2) .project-art { background: #ccefe0; }
+    .project:nth-child(3) .project-art { background: #ffd9d5; }
+    .sample-sheet { width: 150px; background: white; border-radius: 10px; padding: 12px; box-shadow: 0 8px 18px #18304f1a; transform: rotate(-3deg); }
+    .sample-sheet strong { display: block; font-size: .76rem; color: var(--navy); margin-bottom: 8px; }
+    .sample-doodles { display: flex; justify-content: space-around; font-size: 1.45rem; padding: 5px 0; }
+    .project-copy { padding: 20px; }
+    .project-copy h3 { color: var(--navy); margin-bottom: 7px; }
+    .project-copy p { font-size: .9rem; color: var(--muted); margin-bottom: 13px; }
+    .tag { display: inline-block; padding: 4px 9px; background: #f0f3f7; border-radius: 99px; font-size: .72rem; font-weight: 750; margin: 0 5px 5px 0; }
+    .freebie { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 26px; padding: 32px; border-radius: 28px; background: var(--yellow); }
+    .freebie h2 { color: var(--navy); font-size: clamp(1.8rem,3vw,2.6rem); line-height: 1.06; letter-spacing: -.04em; margin-bottom: 10px; }
+    .freebie p { color: #4b5360; margin-bottom: 0; }
+    .mini-activity { width: 150px; height: 130px; background: white; border-radius: 18px; display: grid; place-items: center; font-size: 3rem; transform: rotate(5deg); box-shadow: 0 10px 24px #18304f16; }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; counter-reset: step; }
+    .step { background: white; border: 1px solid var(--line); padding: 24px; border-radius: 20px; }
+    .step-num { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: var(--mint); color: var(--navy); font-weight: 900; margin-bottom: 16px; }
+    .step h3 { color: var(--navy); margin-bottom: 8px; }
+    .step p { color: var(--muted); font-size: .92rem; margin-bottom: 0; }
+    .about { display: grid; grid-template-columns: .75fr 1.25fr; gap: 40px; align-items: start; }
+    .about-stamp { background: var(--red); color: white; border-radius: 28px; min-height: 250px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
+    .about-stamp .big { font-size: 4rem; line-height: 1; font-weight: 900; letter-spacing: -.08em; }
+    .about-stamp p { margin: 0; max-width: 220px; font-weight: 700; }
+    .about-copy h2 { color: var(--navy); font-size: 2.5rem; line-height: 1.06; letter-spacing: -.05em; margin-bottom: 16px; }
+    .about-copy p { color: var(--muted); }
+    .contact-box { background: var(--navy); color: white; border-radius: 28px; padding: clamp(26px,5vw,52px); display: grid; grid-template-columns: .9fr 1.1fr; gap: 38px; }
+    .contact-box h2 { font-size: clamp(2rem,4vw,3.2rem); letter-spacing: -.05em; line-height: 1.05; margin-bottom: 14px; }
+    .contact-box p { color: #dbe4ef; }
+    form { display: grid; gap: 12px; }
+    label { display: block; font-size: .83rem; font-weight: 700; margin-bottom: 5px; }
+    input, select, textarea { width: 100%; border: 1px solid #cbd4df; border-radius: 12px; padding: 12px 13px; background: white; color: var(--ink); }
+    textarea { resize: vertical; min-height: 100px; }
+    .form-note { font-size: .78rem; color: #dbe4ef; margin: 0; }
+    footer { padding: 28px 0; color: var(--muted); font-size: .85rem; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-links a { text-decoration: none; }
+    .notice { margin-top: 18px; background: #fff6dc; border: 1px solid #f1dfaa; padding: 13px 15px; border-radius: 12px; font-size: .87rem; color: #5e4c1a; }
+    @media (max-width: 900px) {
+      .hero-grid, .two-col, .about, .contact-box { grid-template-columns: 1fr; }
+      .hero { padding-top: 48px; }
+      .artboard { min-height: 360px; }
+      .cards { grid-template-columns: repeat(2,1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-box { gap: 25px; }
+    }
+    @media (max-width: 650px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .nav { min-height: 68px; }
+      .menu-btn { display: block; }
+      .navlinks { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 24px 22px; background: var(--cream); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 15px; }
+      .navlinks.open { display: flex; }
+      .navlinks .btn { text-align: center; }
+      h1 { font-size: clamp(2.8rem,14vw,4.2rem); }
+      section { padding: 55px 0; }
+      .cards, .portfolio-grid, .steps { grid-template-columns: 1fr; }
+      .freebie { grid-template-columns: 1fr; }
+      .mini-activity { display: none; }
+      .float-one { left: -3px; }
+      .float-two { right: -2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">Playful learning. Thoughtful design. A little bit of wonder.</div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Wondergrove home">
+        <span class="logo" aria-hidden="true">✦</span>
+        <span>Wondergrove<small>LEARNING DESIGN STUDIO</small></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="navlinks" id="navLinks" aria-label="Main navigation">
+        <a href="#resources">Resources</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a class="btn btn-red" href="#contact">Work with me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Learning language and so much more</div>
+          <h1>Little learners.<br><span>Big wonder.</span></h1>
+          <p>Wondergrove creates playful worksheets, thoughtful curriculum, and interactive learning experiences that help children grow through language, stories, music, movement, and discovery.</p>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="#portfolio">Explore the portfolio <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="#contact">Let's create together</a>
+          </div>
+          <div class="micro">For educators, schools, families, and curious young learners.</div>
+        </div>
+        <div class="artboard" aria-label="Illustration of a playful educational worksheet">
+          <div class="blob"></div>
+          <div class="float float-one">Play • Explore • Grow</div>
+          <div class="paper">
+            <div class="paper-top"><strong>WONDERGROVE WORKSHEET</strong><span class="pill">AGES 3–6</span></div>
+            <div class="worksheet-title">Let's learn together!</div>
+            <div class="worksheet-sub">Look, match, say, and try.</div>
+            <div class="match-grid">
+              <div class="match">🍎</div><div class="match">🐻</div><div class="match">☀️</div>
+              <div class="match">A a</div><div class="match">熊</div><div class="match">圆</div>
+            </div>
+            <div class="lines"><div class="line"></div><div class="line"></div></div>
+          </div>
+          <div class="float float-two">English · 中文 · Bahasa</div>
+          <div class="float float-three">Made for curious minds!</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What I create</div>
+          <h2>Learning resources with purpose — and plenty of play.</h2>
+          <p>Practical, child-centred materials designed to help educators teach with confidence and help children learn by doing.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="card-icon">✏️</div><h3>Worksheets & Printables</h3><p>Thoughtful activity sheets for early literacy, numeracy, vocabulary, fine-motor skills, and discovery.</p></article>
+          <article class="card"><div class="card-icon">文</div><h3>Mandarin Resources</h3><p>Beginner-friendly Mandarin materials with Hanzi, pinyin, useful language patterns, and playful practice.</p></article>
+          <article class="card"><div class="card-icon">🌱</div><h3>Curriculum & Lesson Plans</h3><p>Age-appropriate learning sequences, objectives, activities, and assessment ideas for busy educators.</p></article>
+          <article class="card"><div class="card-icon">◎</div><h3>Interactive Learning</h3><p>Simple digital games, quizzes, and browser-based activities that invite children to participate.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="resources">
+      <div class="wrap two-col">
+        <div class="feature-panel">
+          <div class="eyebrow" style="color:var(--yellow)">A multilingual point of view</div>
+          <h3>More than a worksheet. A meaningful learning experience.</h3>
+          <p>Language learning can be playful, purposeful, and connected to children's real lives.</p>
+          <ul class="checklist">
+            <li><span class="check">✓</span><span>English, Mandarin, and Indonesian learning contexts</span></li>
+            <li><span class="check">✓</span><span>Play-based activities for young learners</span></li>
+            <li><span class="check">✓</span><span>Clear instructions and practical teacher guidance</span></li>
+            <li><span class="check">✓</span><span>Options for print, screen, individual, or group use</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="section-head">
+            <div class="eyebrow">Designed for real classrooms</div>
+            <h2>Useful for teachers. Engaging for children.</h2>
+            <p>Each resource can be built around a clear learning goal, an age-appropriate challenge, and an invitation to speak, move, make, or explore.</p>
+          </div>
+          <div class="cards" style="grid-template-columns:repeat(2,1fr)">
+            <article class="card"><h3>For schools & education teams</h3><p>Custom resource packs, curriculum support, and consistent materials for learning programmes.</p></article>
+            <article class="card"><h3>For teachers & families</h3><p>Ready-to-use activities, downloadable printables, and ideas for learning at home or in class.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Selected work</div>
+          <h2>A growing collection of learning ideas.</h2>
+          <p>These sample concepts show the kinds of resources Wondergrove can develop. Replace them with finished samples as your portfolio grows.</p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="project">
+            <div class="project-art"><div class="sample-sheet"><strong>COUNT & MATCH</strong><div class="sample-doodles">🍐 🍎 🍊</div><div class="sample-doodles">① ② ③</div><div style="height:5px;background:#e7edf3;border-radius:9px;margin:8px 0"></div><div style="height:5px;background:#e7edf3;border-radius:9px;width:75%"></div></div></div>
+            <div class="project-copy"><h3>Little Learners: Count & Match</h3><p>A preschool maths printable for counting, matching, and talking about everyday objects.</p><span class="tag">Early numeracy</span><span class="tag">Ages 3–5</span></div>
+          </article>
+          <article class="project">
+            <div class="project-art"><div class="sample-sheet"><strong>我的水果 · MY FRUIT</strong><div class="sample-doodles">苹果 🍎 香蕉 🍌</div><div class="sample-doodles">píngguǒ  xiāngjiāo</div><div style="height:5px;background:#e7edf3;border-radius:9px;margin:8px 0"></div><div style="height:5px;background:#e7edf3;border-radius:9px;width:75%"></div></div></div>
+            <div class="project-copy"><h3>Mandarin Through Everyday Life</h3><p>A bilingual vocabulary concept with Hanzi, pinyin, picture prompts, and simple speaking practice.</p><span class="tag">Mandarin</span><span class="tag">Vocabulary</span></div>
+          </article>
+          <article class="project">
+            <div class="project-art"><div class="sample-sheet"><strong>STORYTIME ADVENTURE</strong><div class="sample-doodles">🐻 🌳 🐦</div><div style="font-size:.72rem;color:#637084;text-align:center">Who? Where? What happened?</div><div style="height:5px;background:#e7edf3;border-radius:9px;margin:8px 0"></div><div style="height:5px;background:#e7edf3;border-radius:9px;width:75%"></div></div></div>
+            <div class="project-copy"><h3>Story, Talk & Create</h3><p>A story-based activity sequence that encourages speaking, imagination, sequencing, and drawing.</p><span class="tag">Language</span><span class="tag">Creative play</span></div>
+          </article>
+        </div>
+        <div class="notice"><strong>Portfolio note:</strong> These are illustrative mock-ups, not finished downloadable products. Add your own completed sample PDFs, learning objectives, age range, and instructions before presenting them as client work.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="freebie">
+          <div>
+            <div class="eyebrow">Start with something free</div>
+            <h2>A little learning inspiration for your next activity.</h2>
+            <p>Offer a free mini worksheet or activity pack in exchange for a visit, a newsletter signup, or an inquiry. Add your downloadable file link here when it's ready.</p>
+            <div style="margin-top:20px"><a class="btn btn-navy" href="#contact">Request a sample pack</a></div>
+          </div>
+          <div class="mini-activity" aria-hidden="true">✂️ 🍎 ✨</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">How we can work together</div>
+          <h2>From idea to classroom-ready resource.</h2>
+          <p>A simple, collaborative process for schools, education businesses, teachers, and families.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="step-num">1</div><h3>Share your goal</h3><p>Tell me the age group, learning objective, language, format, and how the resource will be used.</p></article>
+          <article class="step"><div class="step-num">2</div><h3>Shape the resource</h3><p>We agree on the concept, scope, timeline, and deliverables before development begins.</p></article>
+          <article class="step"><div class="step-num">3</div><h3>Review & refine</h3><p>Review the draft, share feedback, and receive the agreed final files and usage notes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about">
+        <div class="about-stamp"><div class="big">你好!<br>Hello!</div><p>Three languages. One love for helping children learn.</p></div>
+        <div class="about-copy">
+          <div class="eyebrow">Meet the creator</div>
+          <h2>Teaching experience, creative thinking, and a multilingual lens.</h2>
+          <p>I'm an early-childhood educator and language teacher who believes children learn best when they feel curious, involved, and encouraged to try.</p>
+          <p>As a native Indonesian speaker fluent in Mandarin and English, I create learning materials that can support language development across different contexts. My work draws on classroom experience, play-based learning, storytelling, and practical activities teachers can use with confidence.</p>
+          <p><strong>My aim:</strong> to make learning resources clear for adults, meaningful for children, and flexible enough for different learning environments.</p>
+          <p class="micro">Before publishing, personalise this section with your verified qualifications, teaching experience, training, and examples of your work. Only include credentials you can substantiate.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow" style="color:var(--yellow)">Let's make something meaningful</div>
+            <h2>Have a learning idea in mind?</h2>
+            <p>Whether you're a school looking for curriculum support, a teacher searching for a resource, or a family hoping to make learning playful, I'd love to hear what you need.</p>
+            <p>Share a few details and I'll be in touch to discuss the best next step.</p>
+          </div>
+          <div>
+            <form id="contactForm">
+              <div><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required placeholder="Name"></div>
+              <div><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+              <div><label for="type">I'm interested in...</label><select id="type" name="type"><option>Custom worksheets or printables</option><option>Curriculum or lesson-plan design</option><option>Mandarin learning materials</option><option>Interactive digital learning activities</option><option>Licensing or school partnership</option><option>Other collaboration</option></select></div>
+              <div><label for="message">Tell me a little about your project</label><textarea id="message" name="message" required placeholder="Age group, topic, language, timeline, and what you have in mind..."></textarea></div>
+              <button class="btn btn-yellow" type="submit">Prepare email inquiry ↗</button>
+              <p class="form-note">This demo opens your email app; it does not store or send form entries on the website. Configure your email address in the HTML before publishing.</p>
+              <div id="formStatus" class="form-note" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <a class="brand" href="#home"><span class="logo" aria-hidden="true">✦</span><span>Wondergrove<small>LEARNING DESIGN STUDIO</small></span></a>
+      <div>© <span id="year"></span> Wondergrove. Made with curiosity.</div>
+      <div class="footer-links"><a href="#resources">Resources</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a></div>
+    </div>
+  </footer>
+  <script>
+    // IMPORTANT: Replace this with your professional contact email before publishing.
+    const CONTACT_EMAIL = "YOUR_EMAIL@example.com";
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      menuBtn.textContent = open ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "Open navigation");
+      menuBtn.textContent = "☰";
+    }));
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("contactForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const status = document.getElementById("formStatus");
+      if (CONTACT_EMAIL === "YOUR_EMAIL@example.com") {
+        status.textContent = "Before using this form, open index.html and replace YOUR_EMAIL@example.com with your real business email.";
+        return;
+      }
+      const data = new FormData(event.currentTarget);
+      const subject = encodeURIComponent("Wondergrove enquiry: " + data.get("type"));
+      const body = encodeURIComponent(
+        "Name: " + data.get("name") + "\nEmail: " + data.get("email") +
+        "\nInterested in: " + data.get("type") + "\n\nProject details:\n" + data.get("message")
+      );
+      status.textContent = "Opening your email app to prepare the message...";
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
